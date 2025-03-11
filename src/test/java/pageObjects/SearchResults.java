@@ -44,7 +44,7 @@ public class SearchResults {
     }
 
     public void waitElementVisible(By by){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(35));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 }
