@@ -11,7 +11,12 @@ public class WebDriverManager {
     private static WebDriver driver;
 
     public static WebDriver driverSetup(){
-        return driver = new ChromeDriver();
+      ChromeOptions options = new ChromeOptions();
+      options.addArguments("--headless");
+      options.addArguments("--no-sandbox");
+      options.addArguments("--disable-dev-shm-usage");
+
+      return driver = new ChromeDriver(options);
     }
 
     public static void webDriverClose(){

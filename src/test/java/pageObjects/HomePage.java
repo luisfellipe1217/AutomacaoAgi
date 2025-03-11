@@ -20,7 +20,7 @@ public class HomePage {
     }
 
     public void clickSearchButton(){
-        waitElementClick(searchButton);
+        waitElementVisible(searchButton);
         driver.findElement(searchButton).click();
     }
 
@@ -35,11 +35,6 @@ public class HomePage {
 
     public void sendEnterKeyOnSearchBox(){
         driver.findElement(searchTextBox).sendKeys(Keys.ENTER);
-    }
-
-    public void waitElementClick(By by){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
     public void waitElementVisible(By by){
