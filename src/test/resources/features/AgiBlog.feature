@@ -1,35 +1,33 @@
 # language: pt
 
   Funcionalidade: Busca de artigos
-    Como um usuário
-    Eu quero buscar artigos finaceiros no blog Agi
-    Para que eu possa encontrar fontes de informações financeiras relevantes para meu dia a dia
+    Como um usuário do AgiBlog
+    Quero buscar artigos financeiros no blog
+    Para encontrar informações relevantes para o meu dia a dia
 
   Contexto:
-    Dado que estou na pagina inicial do AgiBlog
-    Quando eu clicar no icone da lupa
+    Dado que estou na página inicial do AgiBlog
+    Quando eu clicar no ícone da lupa
+    E visualizar a caixa de busca
 
-@testCase1
+  @testCase1
   Cenario: Busca com palavra chave direta
-    E digitar a palavra chave na caixa de texto aparente
-    E teclar Enter
-    Então devo receber os resultados da busca conforme a palavra chave inserida
+      Quando eu digitar uma palavra-chave válida na caixa de busca
+      E pressionar a tecla "Enter"
+      Então devo visualizar uma lista de artigos
+      E os artigos exibidos devem conter a palavra-chave inserida no título ou no conteúdo
 
-@testCase2
-  Cenario: Busca com mais de uma palavra chave composta
-    E digitar um grupo de palavras chaves na caixa de texto aparente
-    E teclar Enter
-    Então devo receber os resultados da busca conforme as palavras inseridas
-
-@testCase3
+  @testCase2
   Cenário: Busca com caracteres especiais
-    E digitar algum termo com caracteres especiais
-    E teclar Enter
-    Então devo receber os resultados da busca conforme o termo informado
+    Quando eu digitar um termo contendo caracteres especiais (ex: "Renda+Fixa", "invest@mento", "R$")
+    E pressionar a tecla "Enter"
+    Então devo visualizar uma lista de artigos
+    E os resultados devem tratar corretamente os caracteres especiais, retornando artigos relevantes
 
-@testCase4
+  @testCase3
   Cenário: Busca com mais de uma pagina de resultados
-    E digitar a palavra chave "Financeiro"
-    E teclar Enter
-    Então devo receber a busca com mais de uma página de resultados
+    Quando eu digitar a palavra-chave "financeiro"
+    E pressionar a tecla "Enter"
+    Então devo visualizar uma lista de artigos
+    E se houver mais de uma página de resultados, deve ser exibida a paginação para navegação
 
