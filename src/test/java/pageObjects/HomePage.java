@@ -12,7 +12,7 @@ public class HomePage {
 
     WebDriver driver;
 
-    private By searchButton = By.xpath("//a[contains(@class, 'slide-search')]");
+    private By searchButton = By.xpath("//a[contains(@aria-label, 'link do fcome de pesquisar')]");
     private By searchTextBox = By.id("search-field");
 
     public HomePage(WebDriver driver){
