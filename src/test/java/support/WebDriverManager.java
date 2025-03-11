@@ -12,9 +12,10 @@ public class WebDriverManager {
 
     public static WebDriver driverSetup(){
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless");
+        options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        
         return driver = new ChromeDriver(options);
     }
 

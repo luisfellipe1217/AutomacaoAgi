@@ -23,5 +23,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: kill chrome before testing
+        run: pkill -f chrome || true
+
       - name: Build and Run Tests
         run: mvn test
