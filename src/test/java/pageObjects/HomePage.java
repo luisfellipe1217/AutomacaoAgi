@@ -12,7 +12,7 @@ public class HomePage {
 
     WebDriver driver;
 
-    private By searchButton = By.cssSelector(".ast-icon > .ahfb-svg-iconset");
+    private By searchButton = By.cssSelector(".ast-icon > .ahfb-svg-iconset ");
     private By searchTextBox = By.id("search-field");
 
     public HomePage(WebDriver driver){
@@ -39,7 +39,8 @@ public class HomePage {
 
     public void waitElementVisible(By by){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.elementToBeVisible(by));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
         
     public void waitElementClickabe(By by){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
