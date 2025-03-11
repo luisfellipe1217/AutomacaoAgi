@@ -15,7 +15,7 @@ jobs:
       - name: Setup Microsoft Edge
         run: |
           sudo apt update
-          sudo apt install -y microsoft-edge
+          sudo apt install microsoft-edge-dev
 
       - name: Set up JDK
         uses: actions/setup-java@v3
