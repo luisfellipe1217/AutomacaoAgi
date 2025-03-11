@@ -39,10 +39,10 @@ public class HomePage {
 
     public void waitElementVisible(By by){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.elementToBeVisible(by);
+        wait.until(ExpectedConditions.elementToBeVisible(by));
         
     public void waitElementClickabe(By by){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-        wait.until(ExpectedConditions.elementToBeClickable(by);
+        wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 }
