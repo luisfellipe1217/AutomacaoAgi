@@ -11,7 +11,7 @@ public class WebDriverManager {
     }
 
     public void webDriverInit(){
-        System.setProperty("webdriver.edge.driver", "src/test/resources/webdriver/msedgedriver.exe");
+        System.setProperty("webdriver.edge.driver", "src/test/resources/webdriver/msedgedriver");
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.get("https://blogdoagi.com.br/");
