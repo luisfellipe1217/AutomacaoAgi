@@ -20,7 +20,7 @@ public class HomePage {
     }
 
     public void clickSearchButton(){
-        waitElementVisible(searchButton);
+        waitElementClickabe(searchButton);
         driver.findElement(searchButton).click();
     }
 
@@ -39,6 +39,10 @@ public class HomePage {
 
     public void waitElementVisible(By by){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+        wait.until(ExpectedConditions.elementToBeVisible(by);
+        
+    public void waitElementClickabe(By by){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        wait.until(ExpectedConditions.elementToBeClickable(by);
     }
 }
