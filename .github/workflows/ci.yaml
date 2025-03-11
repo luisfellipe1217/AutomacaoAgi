@@ -12,11 +12,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup Microsoft Edge
-        run: |
-          sudo apt update
-          sudo apt install microsoft-edge-dev
-
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
