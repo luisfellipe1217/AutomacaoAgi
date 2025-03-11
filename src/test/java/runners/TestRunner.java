@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "steps",
-        tags = "@testCase1",
         plugin = {"pretty", "html:target/cucumber-reports"},
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
