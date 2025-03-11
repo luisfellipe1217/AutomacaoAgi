@@ -13,7 +13,7 @@ public class SearchResults {
 
     WebDriver driver;
     JavascriptExecutor js;
-    private final By researchResultsText = By.xpath("//*[@id=\"primary\"]/section/h1");
+    private final By researchResultsText = By.xpath("//*[@id='primary']/section/h1");
     private final By firstResultCard = By.id("post-3622");
     private final By infiteWrapPage2 = By.id("infinite-view-2");
 
