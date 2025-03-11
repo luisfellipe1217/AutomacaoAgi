@@ -17,14 +17,6 @@ jobs:
           sudo apt update
           sudo apt install -y google-chrome-stable
 
-       - name: ChromeDriverInstall
-        run: |
-          CHROME_VERSION=$(google-chrome --version | awk '{print $3}')
-          wget -q "https://chromedriver.storage.googleapis.com/$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION%.*})/chromedriver_linux64.zip"
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
-          sudo chmod +x /usr/local/bin/chromedriver
-
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:

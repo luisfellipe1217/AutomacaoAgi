@@ -8,7 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 public class WebDriverManager {
 
     ChromeOptions options = new ChromeOptions();
-    public WebDriver driver = new ChromeDriver();
+    public WebDriver driver = new ChromeDriver(options);
 
     public WebDriverManager(){
     }
@@ -19,7 +19,7 @@ public class WebDriverManager {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--user-data-dir=" + System.getProperty("java.io.tmpdir") + "/chrome-user-data");
-        
+
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.get("https://blogdoagi.com.br/");
