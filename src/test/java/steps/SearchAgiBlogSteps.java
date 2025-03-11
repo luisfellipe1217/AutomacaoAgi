@@ -15,28 +15,29 @@ import pageObjects.SearchResults;
 
 public class SearchAgiBlogSteps {
 
-    WebDriver driver;
-    HomePage home = new HomePage(driver);
-    SearchResults resultsPage = new SearchResults(driver);
 
-    @Before
-    public void driverSetup(){
+    HomePage home = new HomePage(driverSetup());
+    SearchResults resultsPage = new SearchResults(driverSetup());
+
+
+    public WebDriver driverSetup(){
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
-        options.addArguments("--window-size=1050, 708");
 
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(options);
+
+        return new ChromeDriver(options);
     }
 
     @Dado("que estou na página inicial do AgiBlog")
     public void queEstouNaPáginaInicialDoAgiBlog() {
-        driver.manage().deleteAllCookies();
-        driver.manage().window().maximize();
-        driver.get("https://blogdoagi.com.br/");
+        driverSetup().manage().deleteAllCookies();
+        driverSetup().manage().window().maximize();
+        driverSetup().get("https://blogdoagi.com.br/");
     }
 
     @Quando("eu clicar no ícone da lupa")
@@ -92,6 +93,6 @@ public class SearchAgiBlogSteps {
 
     @After
     public void finalizarTeste() {
-        driver.close();
+        driverSetup().close();
    }
 }
