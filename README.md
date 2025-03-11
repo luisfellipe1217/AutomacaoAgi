@@ -25,7 +25,7 @@ AutomacaoAgi/
 │   │   └── resources/     
 │   ├── test/
 │   │   ├── java/
-|   |   |   |── pageObject/ # Mapeamento dos elementos das paginas utilizadas na automação
+|   |   |   |── pageObjects/ # Mapeamento dos elementos das paginas utilizadas na automação
 │   │   │   ├── runners/    # Runners do Cucumber
 │   │   │   ├── steps/   # Definições dos steps do Cucumber
 │   │   ├── resources/
@@ -88,7 +88,7 @@ O GitHub Actions está configurado para:
 ---
 
 ## 📌 Contato
-Caso tenha dúvidas ou sugestões, entre em contato com a equipe de QA do **AgiBank**.
+Caso tenha dúvidas ou sugestões, entre em contato.
 
 📧 Email: luis.fellipe1217@gmail.com
 📌 LinkedIn: (https://www.linkedin.com/in/luis-fellipe-santos/)
