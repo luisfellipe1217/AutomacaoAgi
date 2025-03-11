@@ -14,11 +14,10 @@ public class WebDriverManager {
     }
 
     public void webDriverInit(){
-
-        options.addArguments("--headless"); // Se estiver rodando sem interface gráfica
+        options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--user-data-dir=" + System.getProperty("java.io.tmpdir") + "/chrome-user-data");
+        options.addArguments("--user-data-dir=" + System.getProperty("java.io.tmpdir") + "/chrome-user-data-" + System.nanoTime());
 
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
