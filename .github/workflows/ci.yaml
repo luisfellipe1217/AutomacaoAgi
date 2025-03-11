@@ -24,5 +24,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Run Maven tests
+      - name: Run Maven install
+        run: mvn clean install
+
+      - name: Run Maven Test
         run: mvn clean test
