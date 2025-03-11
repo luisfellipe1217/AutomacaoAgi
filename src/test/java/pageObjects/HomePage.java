@@ -12,7 +12,7 @@ public class HomePage {
 
     WebDriver driver;
 
-    private By searchButton = By.xpath("//*[@id='ast-desktop-header']//div[contains(@class, 'ast-search-icon')]");
+    private By searchButton = By.cssSelector(".ast-icon > .ahfb-svg-iconset ");
     private By searchTextBox = By.id("search-field");
 
     public HomePage(WebDriver driver){
@@ -38,12 +38,12 @@ public class HomePage {
     }
 
     public void waitElementClick(By by){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
     public void waitElementVisible(By by){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 }
