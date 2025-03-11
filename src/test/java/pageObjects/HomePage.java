@@ -12,7 +12,7 @@ public class HomePage {
 
     WebDriver driver;
 
-    private By searchButton = By.xpath("//a[contains(@aria-label, 'Link do ícone de pesquisa')]");
+    private By searchButton = By.xpath("//span[contains(@class, 'ahfb-svg-iconset') and contains(@class, 'ast-inline-flex') and contains(@class, 'svg-baseline')]");
     private By searchTextBox = By.id("search-field");
 
     public HomePage(WebDriver driver){
@@ -20,7 +20,7 @@ public class HomePage {
     }
 
     public void clickSearchButton(){
-        waitElementClickable(searchButton);
+        waitElementVisible(searchButton);
         driver.findElement(searchButton).click();
     }
 
@@ -40,9 +40,5 @@ public class HomePage {
     public void waitElementVisible(By by){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-    }
-    public void waitElementClickable(By by){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
     }
 }
