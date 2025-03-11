@@ -12,19 +12,16 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup Google Chrome
+      - name: Setup Microsoft Edge
         run: |
           sudo apt update
-          sudo apt install -y google-chrome-stable
+          sudo apt install -y microsoft-edge
 
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
-
-      - name: kill chrome before testing
-        run: pkill -f chrome || true
 
       - name: Build and Run Tests
         run: mvn test

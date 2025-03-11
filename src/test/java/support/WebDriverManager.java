@@ -3,6 +3,8 @@ package support;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 
 
 public class WebDriverManager {
@@ -10,12 +12,8 @@ public class WebDriverManager {
     private static WebDriver driver;
 
     public static WebDriver driverSetup(){
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-
-        return driver = new ChromeDriver(options);
+       System.setProperty("webdriver.edge.driver", "src/test/resources/webdriver/msedgedriver");
+       return driver = new EdgeDriver();
     }
 
     public static void webDriverClose(){
