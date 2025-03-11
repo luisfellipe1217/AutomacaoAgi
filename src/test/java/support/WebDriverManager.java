@@ -15,6 +15,8 @@ public class WebDriverManager {
       options.addArguments("--headless");
       options.addArguments("--no-sandbox");
       options.addArguments("--disable-dev-shm-usage");
+      options.addArguments("--disable-gpu");
+      options.addArguments("--window-size=1050, 708");
 
       return driver = new ChromeDriver(options);
     }

@@ -12,15 +12,15 @@ public class HomePage {
 
     WebDriver driver;
 
-    private By searchButton = By.cssSelector(".ast-icon > .ahfb-svg-iconset ");
-    private By searchTextBox = By.xpath("//input[@id='search-field']");
+    private By searchButton = By.cssSelector(".ast-icon > .ahfb-svg-iconset");
+    private By searchTextBox = By.id("search-field");
 
     public HomePage(WebDriver driver){
         this.driver = driver;
     }
 
     public void clickSearchButton(){
-        waitElementVisible(searchButton);
+        waitElementClickable(searchButton);
         driver.findElement(searchButton).click();
     }
 
@@ -40,5 +40,9 @@ public class HomePage {
     public void waitElementVisible(By by){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+    public void waitElementClickable(By by){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
     }
 }

@@ -12,10 +12,19 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup Google Chrome
+      - name: Set up Chrome
         run: |
-          sudo apt update
-          sudo apt install -y google-chrome-stable
+                wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+                sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+                sudo apt-get update
+                sudo apt-get install -y google-chrome-stable=94.0.4606.61-1
+
+      - name: Set up ChromeDriver
+        run: |
+              CHROME_DRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_94)
+              wget -q -O /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
+              sudo unzip /tmp/chromedriver.zip -d /usr/local/bin/
+              sudo chmod +x /usr/local/bin/chromedriver
 
       - name: Set up JDK
         uses: actions/setup-java@v3
