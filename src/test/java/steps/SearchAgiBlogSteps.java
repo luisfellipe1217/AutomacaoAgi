@@ -18,8 +18,7 @@ public class SearchAgiBlogSteps {
 
     @Dado("que estou na página inicial do AgiBlog")
     public void queEstouNaPáginaInicialDoAgiBlog() {
-        driver.manage().window().maximize();
-        driver.manage().deleteAllCookies();
+        driver.manage().window().fullscreen();
         driver.get("https://blogdoagi.com.br/");
     }
 
