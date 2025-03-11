@@ -24,9 +24,11 @@ public class SearchAgiBlogSteps {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
+        options.addArguments("--disable-gpu");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-gpu");
+        options.addArguments("--window-size=1920,1080");
+        options.addArguments("--remote-allow-origins=*");
 
         WebDriverManager.chromedriver().setup();
 
@@ -36,7 +38,6 @@ public class SearchAgiBlogSteps {
     @Dado("que estou na página inicial do AgiBlog")
     public void queEstouNaPáginaInicialDoAgiBlog() {
         driverSetup().manage().deleteAllCookies();
-        driverSetup().manage().window().maximize();
         driverSetup().get("https://blogdoagi.com.br/");
     }
 
