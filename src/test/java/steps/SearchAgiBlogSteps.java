@@ -29,8 +29,6 @@ public class SearchAgiBlogSteps {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
 
-        WebDriverManager.chromedriver().setup();
-
         return new ChromeDriver(options);
     }
 

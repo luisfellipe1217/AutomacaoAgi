@@ -12,7 +12,7 @@ public class HomePage {
 
     WebDriver driver;
 
-    private By searchButton = By.xpath("//span[contains(@class, 'ahfb-svg-iconset') and contains(@class, 'ast-inline-flex') and contains(@class, 'svg-baseline')]");
+    private By searchButton = By.cssSelector(".ast-icon > .ahfb-svg-iconset ");
     private By searchTextBox = By.id("search-field");
 
     public HomePage(WebDriver driver){
