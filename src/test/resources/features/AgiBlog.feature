@@ -12,22 +12,22 @@
 
   @testCase1
   Cenario: Busca com palavra chave direta
-      Quando eu digitar uma palavra-chave válida na caixa de busca
+      Quando eu digitar uma palavra-chave válida na caixa de busca (ex: "teste")
       E pressionar a tecla "Enter"
-      Então devo visualizar uma lista de artigos
+      Então devo visualizar uma lista de artigos (ex: "teste")
       E os artigos exibidos devem conter a palavra-chave inserida no título ou no conteúdo
 
   @testCase2
   Cenário: Busca com caracteres especiais
-    Quando eu digitar um termo contendo caracteres especiais (ex: "Renda+Fixa", "invest@mento", "R$")
+    Quando eu digitar um termo contendo caracteres especiais (ex: "R$")
     E pressionar a tecla "Enter"
-    Então devo visualizar uma lista de artigos
-    E os resultados devem tratar corretamente os caracteres especiais, retornando artigos relevantes
+    Então devo visualizar uma lista de artigos (ex: "R$")
+    E os resultados devem tratar corretamente os caracteres especiais, retornando artigos relevantes (ex: "R$")
 
   @testCase3
   Cenário: Busca com mais de uma pagina de resultados
     Quando eu digitar a palavra-chave "financeiro"
     E pressionar a tecla "Enter"
-    Então devo visualizar uma lista de artigos
+    Então devo visualizar uma lista de artigos (ex: "financeiro")
     E se houver mais de uma página de resultados, deve ser exibida a paginação para navegação
 

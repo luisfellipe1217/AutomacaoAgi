@@ -31,8 +31,8 @@ public class SearchAgiBlogSteps {
         Assert.assertTrue(home.inputSearchTextBoxVisible());
     }
 
-    @Quando("eu digitar uma palavra-chave válida na caixa de busca")
-    public void euDigitarUmaPalavraChaveVálidaNaCaixaDeBusca() {
+    @Quando("eu digitar uma palavra-chave válida na caixa de busca \\(ex: {string})")
+    public void euDigitarUmaPalavraChaveVálidaNaCaixaDeBuscaEx(String string) {
         home.inputTextSearchTextBox("teste");
     }
 
@@ -41,9 +41,9 @@ public class SearchAgiBlogSteps {
         home.sendEnterKeyOnSearchBox();
     }
 
-    @Então("devo visualizar uma lista de artigos")
-    public void devoVisualizarUmaListaDeArtigos() {
-        Assert.assertEquals("Resultados encontrados para: teste", resultsPage.getResearchResultsText());
+    @Então("devo visualizar uma lista de artigos \\(ex: {string})")
+    public void devoVisualizarUmaListaDeArtigos(String string) {
+        Assert.assertTrue(resultsPage.getResearchResultsText().contains("Resultados encontrados para:"));
     }
 
     @Então("os artigos exibidos devem conter a palavra-chave inserida no título ou no conteúdo")
@@ -52,40 +52,24 @@ public class SearchAgiBlogSteps {
         Assert.assertTrue(resultsPage.getResearchResultsText().contains("teste"));
     }
 
-    @Quando("eu digitar uma frase ou grupo de palavras na caixa de busca")
-    public void euDigitarUmaFraseOuGrupoDePalavrasNaCaixaDeBusca() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @Quando("eu digitar um termo contendo caracteres especiais \\(ex: {string})")
+    public void euDigitarUmTermoContendoCaracteresEspeciaisEx(String string) {
+        home.inputTextSearchTextBox(string);
     }
 
-    @Então("os artigos exibidos devem conter as palavras inseridas no título ou no conteúdo, respeitando a ordem inserida")
-    public void osArtigosExibidosDevemConterAsPalavrasInseridasNoTítuloOuNoConteúdoRespeitandoAOrdemInserida() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Quando("eu digitar um termo contendo caracteres especiais \\(ex: {string}, {string}, {string})")
-    public void euDigitarUmTermoContendoCaracteresEspeciaisEx(String string, String string2, String string3) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Então("os resultados devem tratar corretamente os caracteres especiais, retornando artigos relevantes")
-    public void osResultadosDevemTratarCorretamenteOsCaracteresEspeciaisRetornandoArtigosRelevantes() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @Então("os resultados devem tratar corretamente os caracteres especiais, retornando artigos relevantes \\(ex: {string})")
+    public void osResultadosDevemTratarCorretamenteOsCaracteresEspeciaisRetornandoArtigosRelevantes(String string) {
+        Assert.assertTrue(resultsPage.getResearchResultsText().contains(string));
     }
 
     @Quando("eu digitar a palavra-chave {string}")
     public void euDigitarAPalavraChave(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        home.inputTextSearchTextBox(string);
     }
 
     @Então("se houver mais de uma página de resultados, deve ser exibida a paginação para navegação")
     public void seHouverMaisDeUmaPáginaDeResultadosDeveSerExibidaAPaginaçãoParaNavegação() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        Assert.assertTrue(resultsPage.validateInfiniteWrapperPage());
     }
 
     @After

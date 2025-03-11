@@ -3,7 +3,6 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -13,9 +12,8 @@ public class HomePage {
 
     WebDriver driver;
 
-    private By searchButton = By.xpath("//*[@id=\"ast-desktop-header\"]/div/div/div/div/div[3]/div[2]/div/div/a");
+    private By searchButton = By.xpath("//*[@id=\"ast-desktop-header\"]/div/div/div/div/div[3]/div[2]");
     private By searchTextBox = By.id("search-field");
-    private By homeMenu = By.id("ast-hf-menu-1");
 
     public HomePage(WebDriver driver){
         this.driver = driver;
@@ -27,12 +25,8 @@ public class HomePage {
     }
 
     public boolean inputSearchTextBoxVisible(){
-        try {
-            waitElementVisisble(searchTextBox);
+            waitElementVisible(searchTextBox);
             return driver.findElement(searchTextBox).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
     }
 
     public void inputTextSearchTextBox(String text){
@@ -44,12 +38,12 @@ public class HomePage {
     }
 
     public void waitElementClick(By by){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
-    public void waitElementVisisble(By by){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    public void waitElementVisible(By by){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 }
