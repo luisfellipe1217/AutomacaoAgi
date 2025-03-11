@@ -5,20 +5,22 @@ import io.cucumber.java.es.Dado;
 import io.cucumber.java.it.Quando;
 import io.cucumber.java.pt.Então;
 import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 import pageObjects.HomePage;
 import pageObjects.SearchResults;
 import support.WebDriverManager;
 
-
 public class SearchAgiBlogSteps {
 
-    WebDriverManager driverManager = new WebDriverManager();
-    HomePage home = new HomePage(driverManager.driver);
-    SearchResults resultsPage = new SearchResults(driverManager.driver);
+    WebDriver driver = WebDriverManager.driverSetup();
+    HomePage home = new HomePage(driver);
+    SearchResults resultsPage = new SearchResults(driver);
 
     @Dado("que estou na página inicial do AgiBlog")
     public void queEstouNaPáginaInicialDoAgiBlog() {
-        driverManager.webDriverInit();
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+        driver.get("https://blogdoagi.com.br/");
     }
 
     @Quando("eu clicar no ícone da lupa")
@@ -74,6 +76,6 @@ public class SearchAgiBlogSteps {
 
     @After
     public void finalizarTeste() {
-        driverManager.webDriverClose();
+        WebDriverManager.webDriverClose();
    }
 }
