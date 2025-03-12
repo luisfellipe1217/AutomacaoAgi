@@ -79,7 +79,8 @@ Para visualizar, abra o arquivo no navegador.
 
 ---
 
-##🛠️ Configuração do GitHub Actions
+## 🛠️ Configuração do GitHub Actions
+
 O GitHub Actions está configurado para:
 - Instalar dependências
 - Executar os testes automaticamente
