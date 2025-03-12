@@ -27,7 +27,8 @@ AutomacaoAgi/
 │   │   ├── java/
 |   |   |   |── pageObjects/ # Mapeamento dos elementos das paginas utilizadas na automação
 │   │   │   ├── runners/    # Runners do Cucumber
-│   │   │   ├── steps/   # Definições dos steps do Cucumber
+│   │   │   ├── steps/      # Definições dos steps do Cucumber
+|   |   |   ├── support/    # Definições do WebDriver
 │   │   ├── resources/
 │   │   │   ├── features/   # Features do Cucumber
 │── pom.xml                 # Configuração do Maven
@@ -73,7 +74,7 @@ A configuração da pipeline está no arquivo:
 ## 📊 Relatórios de Execução
 Após a execução dos testes, um relatório em HTML será gerado na pasta:
 ```
-target/reports/
+target/
 ```
 Para visualizar, abra o arquivo no navegador.
 
