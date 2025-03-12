@@ -29,10 +29,12 @@ jobs:
           key: maven-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
           restore-keys: maven-${{ runner.os }}-
 
-      - name: Install Google Chrome
+      - name: Install Google Chrome 114
         run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
+          sudo apt-get remove -y google-chrome-stable
+          wget -q https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_114.0.5735.90-1_amd64.deb
+          sudo dpkg -i google-chrome-stable_114.0.5735.90-1_amd64.deb || sudo apt-get -f install -y
+          google-chrome --version
 
       - name: Install ChromeDriver
         run: |
