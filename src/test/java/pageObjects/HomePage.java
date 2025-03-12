@@ -5,6 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class HomePage {
@@ -12,17 +13,21 @@ public class HomePage {
     WebDriver driver;
     JavascriptExecutor js;
 
-    By searchButton = By.cssSelector(".ast-icon > .ahfb-svg-iconset");
+    By searchButton = By.cssSelector(".ast-icon > .ahfb-svg-iconset > svg");
     By searchTextBox = By.id("search-field");
 
     public HomePage(WebDriver driver){
         this.driver = driver;
     }
 
-    public void loadHomePage(){
+    public void loadHomePage() throws InterruptedException {
         driver.manage().deleteAllCookies();
         driver.get("https://blogdoagi.com.br/");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void clickSearchButton(){
@@ -30,8 +35,7 @@ public class HomePage {
     }
 
     public boolean inputSearchTextBoxVisible(){
-            waitElementVisible(searchTextBox);
-            return driver.findElement(searchTextBox).isDisplayed();
+        return driver.findElement(searchTextBox).isDisplayed();
     }
 
     public void inputTextSearchTextBox(String text){
@@ -42,8 +46,4 @@ public class HomePage {
         driver.findElement(searchTextBox).sendKeys(Keys.ENTER);
     }
 
-    public void waitElementVisible(By by){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-    }
 }

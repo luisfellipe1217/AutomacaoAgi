@@ -14,6 +14,7 @@ public class DriverManager {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
 
+
         return new ChromeDriver(options);
     }
 

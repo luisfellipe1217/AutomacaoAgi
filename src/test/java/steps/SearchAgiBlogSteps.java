@@ -22,7 +22,7 @@ public class SearchAgiBlogSteps {
 
 
     @Dado("que estou na página inicial do AgiBlog")
-    public void queEstouNaPáginaInicialDoAgiBlog() {
+    public void queEstouNaPáginaInicialDoAgiBlog() throws InterruptedException {
         home.loadHomePage();
     }
 
@@ -78,7 +78,8 @@ public class SearchAgiBlogSteps {
     }
 
     @After
-    public void finalizarTeste() {
-        driverSetup().close();
-   }
+    public void tearDown() {
+        driverSetup().quit();
+    }
+
 }
