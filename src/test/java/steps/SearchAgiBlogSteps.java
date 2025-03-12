@@ -4,39 +4,26 @@ import io.cucumber.java.After;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.it.Quando;
 import io.cucumber.java.pt.Então;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import pageObjects.HomePage;
 import pageObjects.SearchResults;
 
+
+import static support.DriverManager.driverSetup;
+
 public class SearchAgiBlogSteps {
 
+    WebDriver driver = driverSetup();
 
-    HomePage home = new HomePage(driverSetup());
-    SearchResults resultsPage = new SearchResults(driverSetup());
+    HomePage home = new HomePage(driver);
+    SearchResults resultsPage = new SearchResults(driver);
 
 
-    public WebDriver driverSetup(){
-
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        options.addArguments("--disable-gpu");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--remote-allow-origins=*");
-
-        return new ChromeDriver(options);
-    }
 
     @Dado("que estou na página inicial do AgiBlog")
     public void queEstouNaPáginaInicialDoAgiBlog() {
-        driverSetup().manage().deleteAllCookies();
-        driverSetup().manage().window().maximize();
-        driverSetup().get("https://blogdoagi.com.br/");
+        home.loadHomePage();
     }
 
     @Quando("eu clicar no ícone da lupa")

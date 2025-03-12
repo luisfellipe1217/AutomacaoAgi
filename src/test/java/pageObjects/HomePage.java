@@ -1,26 +1,32 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class HomePage {
 
     WebDriver driver;
+    JavascriptExecutor js;
 
-    private By searchButton = By.cssSelector(".ast-icon > .ahfb-svg-iconset ");
-    private By searchTextBox = By.id("search-field");
+    By searchButton = By.xpath("//*[@class='slide-search astra-search-icon']");
+    By searchTextBox = By.id("search-field");
 
     public HomePage(WebDriver driver){
         this.driver = driver;
     }
 
+    public void loadHomePage(){
+        driver.manage().deleteAllCookies();
+        driver.get("https://blogdoagi.com.br/");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
+
     public void clickSearchButton(){
-        waitElementClickabe(searchButton);
+
         driver.findElement(searchButton).click();
     }
 
