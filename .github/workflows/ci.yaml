@@ -42,18 +42,13 @@ jobs:
           sudo dpkg -i google-chrome-stable_114.0.5735.90-1_amd64.deb || sudo apt-get -f install -y
           google-chrome --version
 
-      - name: Install ChromeDriver
+      - name: Install ChromeDriver 114
         run: |
-          CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE")
-          wget -N "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
+          wget -N "https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip"
           unzip chromedriver_linux64.zip
           sudo mv chromedriver /usr/local/bin/
           rm chromedriver_linux64.zip
           chmod +x /usr/local/bin/chromedriver
-
-      - name: Verify Chrome and ChromeDriver installation
-        run: |
-          google-chrome --version
           chromedriver --version
 
       - name: Run Selenium Tests
