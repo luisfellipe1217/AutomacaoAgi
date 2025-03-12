@@ -13,6 +13,7 @@ public class DriverManager {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--window-size=1920,1080");
 
 
         return new ChromeDriver(options);

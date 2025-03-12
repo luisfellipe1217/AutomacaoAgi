@@ -2,7 +2,7 @@
 
 ## 📌 Sobre o Projeto
 Este projeto consiste na automação de testes do **AgiBlog**, desenvolvido utilizando **Java**, **Selenium WebDriver** e **Cucumber**. 
-A estrutura segue o padrão **Page Object Model (POM)** para melhor organização e reutilização do código. Além disso, a automação está integrada ao **GitHub Actions** para execução contínua na pipeline CI/CD.
+A estrutura segue o padrão **Page Object Model (POM)** para melhor organização e reutilização do código.
 
 ---
 
@@ -27,7 +27,8 @@ AutomacaoAgi/
 │   │   ├── java/
 |   |   |   |── pageObjects/ # Mapeamento dos elementos das paginas utilizadas na automação
 │   │   │   ├── runners/    # Runners do Cucumber
-│   │   │   ├── steps/   # Definições dos steps do Cucumber
+│   │   │   ├── steps/      # Definições dos steps do Cucumber
+|   |   |   ├── support/    # Definições do WebDriver
 │   │   ├── resources/
 │   │   │   ├── features/   # Features do Cucumber
 │── pom.xml                 # Configuração do Maven
@@ -60,30 +61,14 @@ Para rodar os testes localmente, utilize o seguinte comando:
 ```bash
 mvn clean test
 ```
-
-### **No GitHub Actions**
-Os testes são executados automaticamente na pipeline do **GitHub Actions** após cada push ou pull request no repositório.
-A configuração da pipeline está no arquivo:
-```
-.github/workflows/ci.yml
-```
-
 ---
 
 ## 📊 Relatórios de Execução
 Após a execução dos testes, um relatório em HTML será gerado na pasta:
 ```
-target/reports/
+target/
 ```
 Para visualizar, abra o arquivo no navegador.
-
----
-
-## 🛠️ Configuração do GitHub Actions
-O GitHub Actions está configurado para:
-- Instalar dependências
-- Configurar o ambiente java
-- Executar os testes automaticamente
 
 ---
 
