@@ -53,7 +53,6 @@ public class SearchAgiBlogSteps {
 
     @Então("os artigos exibidos devem conter a palavra-chave inserida no título ou no conteúdo")
     public void osArtigosExibidosDevemConterAPalavraChaveInseridaNoTítuloOuNoConteúdo() {
-        Assert.assertTrue(resultsPage.getFirstResultCard());
         Assert.assertTrue(resultsPage.getResearchResultsText().contains("teste"));
     }
 

@@ -22,7 +22,7 @@ public class HomePage {
 
     public void loadHomePage() throws InterruptedException {
         driver.manage().deleteAllCookies();
-        driver.get("https://blogdoagi.com.br/");
+        driver.get("https://blogdoagi.com.br/#");
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
