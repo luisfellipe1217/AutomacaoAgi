@@ -22,10 +22,10 @@ public class HomePage {
 
     public void loadHomePage() throws InterruptedException {
         driver.manage().deleteAllCookies();
-        driver.manage().window().fullscreen();
         driver.get("https://blogdoagi.com.br/");
+
         try {
-            Thread.sleep(30000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
