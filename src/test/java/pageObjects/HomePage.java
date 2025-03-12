@@ -12,7 +12,7 @@ public class HomePage {
     WebDriver driver;
     JavascriptExecutor js;
 
-    By searchButton = By.xpath("//*[@class='slide-search astra-search-icon']");
+    By searchButton = By.cssSelector(".ast-icon > .ahfb-svg-iconset");
     By searchTextBox = By.id("search-field");
 
     public HomePage(WebDriver driver){
@@ -26,7 +26,7 @@ public class HomePage {
     }
 
     public void clickSearchButton(){
-
+        waitElementClickabe(searchButton);
         driver.findElement(searchButton).click();
     }
 
