@@ -13,7 +13,7 @@ public class HomePage {
     WebDriver driver;
     JavascriptExecutor js;
 
-    By searchButton = By.cssSelector(".ast-icon > .ahfb-svg-iconset > svg");
+    By searchButton = By.xpath("//span[text()='Pesquisar']/following-sibling::span[1]");
     By searchTextBox = By.id("search-field");
 
     public HomePage(WebDriver driver){
