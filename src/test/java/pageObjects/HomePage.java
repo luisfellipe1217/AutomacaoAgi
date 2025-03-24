@@ -1,19 +1,14 @@
 package pageObjects;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
-import java.util.List;
 
 public class HomePage {
 
     WebDriver driver;
     JavascriptExecutor js;
 
-    By searchButton = By.xpath("//span[text()='Pesquisar']/following-sibling::span[1]");
+    By searchButton = By.className("astra-search-icon");
     By searchTextBox = By.id("search-field");
 
     public HomePage(WebDriver driver){

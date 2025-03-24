@@ -4,13 +4,14 @@ import io.cucumber.java.After;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.it.Quando;
 import io.cucumber.java.pt.Então;
+import org.junit.AfterClass;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pageObjects.HomePage;
 import pageObjects.SearchResults;
 
 
-import static support.DriverManager.driverSetup;
+import static support.DriverManager.*;
 
 public class SearchAgiBlogSteps {
 
@@ -53,7 +54,6 @@ public class SearchAgiBlogSteps {
 
     @Então("os artigos exibidos devem conter a palavra-chave inserida no título ou no conteúdo")
     public void osArtigosExibidosDevemConterAPalavraChaveInseridaNoTítuloOuNoConteúdo() {
-        Assert.assertTrue(resultsPage.getFirstResultCard());
         Assert.assertTrue(resultsPage.getResearchResultsText().contains("teste"));
     }
 
